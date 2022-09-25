@@ -1,6 +1,6 @@
 import React from 'react'
-import logo from '../logo.svg';
 import Header from './Header';
+import Sidebar from './Sidebar';
 import IssueList from './IssueList';
 import './App.css';
 
@@ -14,7 +14,6 @@ class App extends React.Component {
       .then(res => res.json())
       .then(data => {
         this.setState({ aws: data.aws })
-        console.log(this.state)
       })
       .catch(e => console.log(e))
   }
@@ -23,8 +22,20 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
-        <h3>Issues:</h3>
-        <IssueList issues={this.state.aws} />
+        <div class="ui grid">
+          <div class="four wide column">
+            <Sidebar />
+          </div>
+          <div class="nine wide column">
+            <h2 class="ui header">
+              <i class="bug icon"></i>
+              <div class="content">
+                Issues
+              </div>
+            </h2>
+            <IssueList issues={this.state.aws} />
+          </div>
+        </div>
       </div>
     );
   }
