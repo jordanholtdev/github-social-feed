@@ -1,1 +1,1 @@
-export default fetch('./issues.json')
+

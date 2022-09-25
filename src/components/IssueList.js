@@ -1,8 +1,11 @@
+import React from 'react';
+import IssueCard from './IssueCard';
+
 const IssueList = (props) => {
     const issues = props.issues.map((issue) => {
-        console.log(issue)
+        return <IssueCard key={issue.id} issue={issue} />
     })
-    return
+    return <div>{issues}</div>
 }
 
 export default IssueList;
