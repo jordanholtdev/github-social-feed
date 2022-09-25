@@ -2,29 +2,48 @@ import React from 'react';
 
 class IssueCard extends React.Component {
 
+
+    getIssueNumber = (issueUrl) => {
+        const regEx = /[^/]+(?=\/$|$)/g;
+        const issueNum = regEx.exec(issueUrl)
+        return issueNum[0]
+    }
+
     render() {
-        const { user, html_url, body, created_at } = this.props.issue;
+        const { user, html_url, body, created_at, issue_url } = this.props.issue;
 
         return (
-            <div class="ui raised container segment">
-                <div class="ui internally celled grid">
-                    <div class="row">
-                        <div class="three wide column">
+            <div class="ui raised padded text container segment">
+                <div div class="ui comments" >
+                    <div class="comment">
+                        <a href={user.html_url} class="avatar">
                             <img class="ui avatar image" alt='' src={user.avatar_url} />
-                        </div>
-                        <div class="thirteen wide column">
-                            <h4 class="ui header"><a class="item" href={html_url} rel="noreferrer" target="_blank">{html_url}</a></h4>
+                        </a>
+                        <div class="content">
+                            <a class="author" href={user.html_url} rel="noreferrer" target="_blank">{user.login}</a>
+                            <div class="metadata">
+                                <div class="date">{created_at}</div>
+                                <div class="rating">
+                                    <i class="star icon"></i>
+                                    5 Faves
+                                </div>
+                            </div>
+                            <div class="text">
+                                {body}
+                            </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="three wide column">
-                            <p>{created_at}</p>
-                        </div>
-                        <div class="ten wide column">
-                            <p>{body}</p>
-                        </div>
-                        <div class="three wide column">
-                            <a class="item" href={user.html_url} rel="noreferrer" target="_blank">{user.login}</a>
+                </div>
+                <div class="ui clearing divider">
+                    <div class="ui comments">
+                        <div class="comment">
+                            <div class="content">
+                                <div class="metadata">
+                                    <div class="rating">
+                                        <a href={html_url} rel="noreferrer" target="_blank">{`Issue Number:${this.getIssueNumber(issue_url)}`}</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

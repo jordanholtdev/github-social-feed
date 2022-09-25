@@ -5,12 +5,6 @@ class TabNav extends React.Component {
     render() {
         return (
             <div>
-                <h2 class="ui header">
-                    <i class="bug icon"></i>
-                    <div class="content">
-                        Issues
-                    </div>
-                </h2>
                 <div class="ui four item menu">
                     {
                         this.props.tabs.map(tab => {
