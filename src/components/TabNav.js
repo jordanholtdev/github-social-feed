@@ -11,7 +11,7 @@ class TabNav extends React.Component {
                             const active = (tab === this.props.selected ? 'active' : '');
 
                             return (
-                                <button className={"ui button item " + active} key={tab} onClick={() => this.props.setSelected(tab)}>{tab}</button>
+                                <button className={"ui basic button " + active} key={tab} onClick={() => this.props.setSelected(tab)}>{tab}</button>
                             )
                         })
                     }

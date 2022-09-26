@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = () => {
     return (
-        <h2 class="ui icon header">
+        <h2 class="ui icon header center aligned">
             <i class="github icon"></i>
             <div class="content">
                 Github Social Feed

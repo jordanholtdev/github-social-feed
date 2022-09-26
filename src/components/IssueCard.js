@@ -28,9 +28,9 @@ class IssueCard extends React.Component {
                                     5 Faves
                                 </div>
                             </div>
-                            <div class="text">
+                            <p class="text" className="Issue-Text">
                                 {body}
-                            </div>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -40,7 +40,7 @@ class IssueCard extends React.Component {
                             <div class="content">
                                 <div class="metadata">
                                     <div class="rating">
-                                        <a href={html_url} rel="noreferrer" target="_blank">{`Issue Number:${this.getIssueNumber(issue_url)}`}</a>
+                                        <a href={html_url} rel="noreferrer" target="_blank">{`Issue #${this.getIssueNumber(issue_url)}`}</a>
                                     </div>
                                 </div>
                             </div>

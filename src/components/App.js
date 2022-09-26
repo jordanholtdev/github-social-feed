@@ -25,9 +25,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div>
         <Header />
-        <div class="ui container">
+        <div>
           <TabNav tabs={['facebook/react', 'vercel/next.js', 'torvalds/linux', 'aws/aws-cli']} selected={this.state.selected} setSelected={this.setSelected} >
             <Tab isSelected={this.state.selected === 'facebook/react'}>
               <IssueList issues={this.state.react} />
