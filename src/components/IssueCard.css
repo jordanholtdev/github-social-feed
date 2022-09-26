@@ -1,3 +1,4 @@
 .Issue-text {
-    text-align: left;
+    text-align: center;
+    word-wrap: break-word !important;
 }

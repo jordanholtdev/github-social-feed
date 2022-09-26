@@ -13,33 +13,33 @@ class IssueCard extends React.Component {
         const { user, html_url, body, created_at, issue_url } = this.props.issue;
 
         return (
-            <div class="ui raised padded text container segment">
-                <div div class="ui comments" >
-                    <div class="comment">
-                        <a href={user.html_url} class="avatar">
-                            <img class="ui avatar image" alt='' src={user.avatar_url} />
+            <div className="ui raised padded text container segment">
+                <div div className="ui comments" >
+                    <div className="comment">
+                        <a href={user.html_url} className="avatar">
+                            <img className="ui avatar image" alt='' src={user.avatar_url} />
                         </a>
-                        <div class="content">
-                            <a class="author" href={user.html_url} rel="noreferrer" target="_blank">{user.login}</a>
-                            <div class="metadata">
-                                <div class="date">{created_at}</div>
-                                <div class="rating">
-                                    <i class="star icon"></i>
+                        <div className="content">
+                            <a className="author" href={user.html_url} rel="noreferrer" target="_blank">{user.login}</a>
+                            <div className="metadata">
+                                <div className="date">{created_at}</div>
+                                <div className="rating">
+                                    <i className="star icon"></i>
                                     5 Faves
                                 </div>
                             </div>
-                            <p class="text" className="Issue-Text">
+                            <p className="text Issue-Text">
                                 {body}
                             </p>
                         </div>
                     </div>
                 </div>
-                <div class="ui clearing divider">
-                    <div class="ui comments">
-                        <div class="comment">
-                            <div class="content">
-                                <div class="metadata">
-                                    <div class="rating">
+                <div className="ui clearing divider">
+                    <div className="ui comments">
+                        <div className="comment">
+                            <div className="content">
+                                <div className="metadata">
+                                    <div className="rating">
                                         <a href={html_url} rel="noreferrer" target="_blank">{`Issue #${this.getIssueNumber(issue_url)}`}</a>
                                     </div>
                                 </div>

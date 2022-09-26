@@ -5,7 +5,7 @@ class TabNav extends React.Component {
     render() {
         return (
             <div>
-                <div class="ui four item menu">
+                <div className="ui four item menu">
                     {
                         this.props.tabs.map(tab => {
                             const active = (tab === this.props.selected ? 'active' : '');
