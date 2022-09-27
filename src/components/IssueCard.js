@@ -28,6 +28,7 @@ class IssueCard extends React.Component {
                             <a className="author" href={user.html_url} rel="noreferrer" target="_blank">{user.login}</a>
                             <div className="metadata">
                                 <div className="date">{this.parseDate(created_at)}</div>
+                                <a href={html_url} rel="noreferrer" target="_blank">{html_url}</a>
                             </div>
                             <p className="text Issue-Text">
                                 {body}
