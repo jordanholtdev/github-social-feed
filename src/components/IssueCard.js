@@ -1,4 +1,5 @@
 import React from 'react';
+import './IssueCard.css';
 import IssueReactions from './IssueReactions';
 
 class IssueCard extends React.Component {
@@ -9,9 +10,14 @@ class IssueCard extends React.Component {
         return issueNum[0]
     }
 
-    parseDate = (data) => {
-        const humanDate = data.split("T")
-        return `${humanDate[0]}, ${humanDate[1]}`
+    getRepoURL = (html_url) => {
+        const url = new URL(html_url)
+        return url.pathname
+    }
+
+    parseDate = (date) => {
+        const formatDate = new Date(date)
+        return formatDate.toLocaleString()
     }
 
     render() {
@@ -26,9 +32,10 @@ class IssueCard extends React.Component {
                         </a>
                         <div className="content">
                             <a className="author" href={user.html_url} rel="noreferrer" target="_blank">{user.login}</a>
-                            <div className="metadata">
+                            <div className="ui metadata">
                                 <div className="date">{this.parseDate(created_at)}</div>
-                                <a href={html_url} rel="noreferrer" target="_blank">{html_url}</a>
+                                <a className='ui' href={html_url} rel="noreferrer" target="_blank">
+                                    {this.getRepoURL(html_url)}</a>
                             </div>
                             <p className="text Issue-Text">
                                 {body}
