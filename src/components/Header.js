@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = () => {
     return (
-        <h2 className="ui icon header center aligned">
+        <h2 className="ui icon header center aligned" style={{ padding: "12px" }}>
             <i className="github icon"></i>
             <div className="content">
                 Github Social Feed

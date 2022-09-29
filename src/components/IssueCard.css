@@ -1,3 +1,7 @@
 .RepoURL {
     padding-left: 25px !important;
 }
+
+.Issue-Text {
+    overflow: auto;
+}

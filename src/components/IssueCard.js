@@ -33,7 +33,7 @@ class IssueCard extends React.Component {
 
     parseDate = (date) => {
         const formatDate = new Date(date)
-        return formatDate.toLocaleString()
+        return formatDate.toUTCString()
     }
 
     render() {

@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from './Header';
+import Footer from './Footer';
 import TabNav from './TabNav';
 import Tab from './Tab';
 import IssueList from './IssueList';
@@ -56,6 +57,7 @@ class App extends React.Component {
             </Tab>
           </TabNav>
         </div>
+        <Footer />
       </div>
     );
   }
