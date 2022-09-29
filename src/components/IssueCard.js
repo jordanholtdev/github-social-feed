@@ -1,8 +1,24 @@
 import React from 'react';
 import './IssueCard.css';
 import IssueReactions from './IssueReactions';
+import { marked } from 'marked';
+import 'highlight.js/styles/github.css';
 
 class IssueCard extends React.Component {
+
+    componentDidMount() {
+        marked.setOptions({
+            highlight: function (code, lang) {
+                const hljs = require('highlight.js');
+                const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+                return hljs.highlight(code, { language }).value;
+            },
+            langPrefix: 'hljs language-',
+            gfm: true,
+            breaks: true,
+            smartypants: true
+        })
+    }
 
     getIssueNumber = (issueUrl) => {
         const regEx = /[^/]+(?=\/$|$)/g;
@@ -37,9 +53,8 @@ class IssueCard extends React.Component {
                                 <a className='ui' href={html_url} rel="noreferrer" target="_blank">
                                     {this.getRepoURL(html_url)}</a>
                             </div>
-                            <p className="text Issue-Text">
-                                {body}
-                            </p>
+                            <div className="text Issue-Text" dangerouslySetInnerHTML={{ __html: marked(body) }}>
+                            </div>
                         </div>
                     </div>
                 </div>
