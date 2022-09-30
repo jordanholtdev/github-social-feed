@@ -15,9 +15,9 @@ class App extends React.Component {
     fetch('./issues.json')
       .then(res => res.json())
       .then(data => {
-        this.setState({ aws: data.aws, react: data.react, linux: data.linux, next: data.next })
-        const { aws, react, linux, next } = data
-        const allIss = [aws, react, linux, next]
+        this.setState({ aws: data.aws, react: data.react, ansible: data.ansible, next: data.next })
+        const { aws, react, ansible, next } = data
+        const allIss = [aws, react, ansible, next]
         const flat = allIss.flat()
         const sorted_by_date = flat.sort((a, b) => {
           const dateA = new Date(a.created_at);
@@ -38,7 +38,7 @@ class App extends React.Component {
       <div>
         <Header />
         <div>
-          <TabNav tabs={['all repos', 'facebook/react', 'vercel/next.js', 'torvalds/linux', 'aws/aws-cli']} selected={this.state.selected} setSelected={this.setSelected} >
+          <TabNav tabs={['all repos', 'facebook/react', 'vercel/next.js', 'ansible/ansible', 'aws/aws-cli']} selected={this.state.selected} setSelected={this.setSelected} >
             <Tab isSelected={this.state.selected === 'facebook/react'}>
               <IssueList issues={this.state.react} />
             </Tab>
@@ -48,8 +48,8 @@ class App extends React.Component {
             <Tab isSelected={this.state.selected === 'vercel/next.js'}>
               <IssueList issues={this.state.next} />
             </Tab>
-            <Tab isSelected={this.state.selected === 'torvalds/linux'}>
-              <IssueList issues={this.state.linux} />
+            <Tab isSelected={this.state.selected === 'ansible/ansible'}>
+              <IssueList issues={this.state.ansible} />
 
             </Tab>
             <Tab isSelected={this.state.selected === 'aws/aws-cli'}>
