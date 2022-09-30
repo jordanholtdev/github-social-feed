@@ -50,7 +50,6 @@ class App extends React.Component {
             </Tab>
             <Tab isSelected={this.state.selected === 'ansible/ansible'}>
               <IssueList issues={this.state.ansible} />
-
             </Tab>
             <Tab isSelected={this.state.selected === 'aws/aws-cli'}>
               <IssueList issues={this.state.aws} />
