@@ -27,8 +27,10 @@ class IssueCard extends React.Component {
     }
 
     getRepoURL = (html_url) => {
+        const regEx = /[^/]+(?=\/)/g;
         const url = new URL(html_url)
-        return url.pathname
+        const repo = regEx.exec(url.pathname)
+        return repo[0]
     }
 
     parseDate = (date) => {
@@ -50,7 +52,7 @@ class IssueCard extends React.Component {
                             <a className="author" href={user.html_url} rel="noreferrer" target="_blank">{user.login}</a>
                             <div className="ui metadata">
                                 <div className="date">{this.parseDate(created_at)}</div>
-                                <a className='ui' href={html_url} rel="noreferrer" target="_blank">
+                                <a className='extra content' href={html_url} rel="noreferrer" target="_blank">
                                     {this.getRepoURL(html_url)}</a>
                             </div>
                             <div className="text Issue-Text" dangerouslySetInnerHTML={{ __html: marked(body) }}>

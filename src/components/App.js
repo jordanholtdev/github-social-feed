@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import Header from './Header';
 import Footer from './Footer';
 import TabNav from './TabNav';
 import Tab from './Tab';
-import IssueList from './IssueList';
 import './App.css';
+import Loader from './Loader';
+const IssueList = lazy(() => import('./IssueList'));
+
 
 class App extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = { aws: [], react: [], selected: 'facebook/react' };
@@ -40,19 +43,29 @@ class App extends React.Component {
         <div>
           <TabNav tabs={['all repos', 'facebook/react', 'vercel/next.js', 'ansible/ansible', 'aws/aws-cli']} selected={this.state.selected} setSelected={this.setSelected} >
             <Tab isSelected={this.state.selected === 'facebook/react'}>
-              <IssueList issues={this.state.react} />
+              <Suspense fallback={<Loader />}>
+                <IssueList issues={this.state.react} />
+              </Suspense>
             </Tab>
             <Tab isSelected={this.state.selected === 'all repos'}>
-              <IssueList issues={this.state.all} />
+              <Suspense fallback={<Loader />}>
+                <IssueList issues={this.state.all} />
+              </Suspense>
             </Tab>
             <Tab isSelected={this.state.selected === 'vercel/next.js'}>
-              <IssueList issues={this.state.next} />
+              <Suspense fallback={<Loader />}>
+                <IssueList issues={this.state.next} />
+              </Suspense>
             </Tab>
             <Tab isSelected={this.state.selected === 'ansible/ansible'}>
-              <IssueList issues={this.state.ansible} />
+              <Suspense fallback={<Loader />}>
+                <IssueList issues={this.state.ansible} />
+              </Suspense>
             </Tab>
             <Tab isSelected={this.state.selected === 'aws/aws-cli'}>
-              <IssueList issues={this.state.aws} />
+              <Suspense fallback={<Loader />}>
+                <IssueList issues={this.state.aws} />
+              </Suspense>
             </Tab>
           </TabNav>
         </div>
