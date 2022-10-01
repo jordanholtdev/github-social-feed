@@ -4,11 +4,20 @@ class Loader extends React.Component {
 
     render() {
         return (
-            <div className="ui segment">
-                <div className="ui active inverted dimmer">
-                    <div className="ui massive text loader">Loading</div>
+            <div className="ui raised padded text container segment">
+                <div className="ui placeholder cented">
+                    <div className="image header">
+                        <div className="line"></div>
+                        <div className="line"></div>
+                    </div>
+                    <div className="paragraph">
+                        <div className="line"></div>
+                        <div className="line"></div>
+                        <div className="line"></div>
+                        <div className="line"></div>
+                        <div className="line"></div>
+                    </div>
                 </div>
-                <p></p>
             </div>
         )
     }
