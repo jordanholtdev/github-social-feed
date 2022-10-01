@@ -48,12 +48,12 @@ class IssueCard extends React.Component {
                         <a href={user.html_url} className="avatar">
                             <img className="ui avatar image" alt='' src={user.avatar_url} />
                         </a>
-                        <div className="content">
+                        <a className='extra content' href={html_url} rel="noreferrer" target="_blank" style={{ textAlign: 'right' }}>
+                            {this.getRepoURL(html_url)}</a>
+                        <div className="content" style={{ marginRight: '3.5rem' }}>
                             <a className="author" href={user.html_url} rel="noreferrer" target="_blank">{user.login}</a>
                             <div className="ui metadata">
                                 <div className="date">{this.parseDate(created_at)}</div>
-                                <a className='extra content' href={html_url} rel="noreferrer" target="_blank">
-                                    {this.getRepoURL(html_url)}</a>
                             </div>
                             <div className="text Issue-Text" dangerouslySetInnerHTML={{ __html: marked(body) }}>
                             </div>
@@ -77,7 +77,15 @@ class IssueCard extends React.Component {
                                 </div>
                             </div>
                             <div className="column">
-                                <IssueReactions reactions={reactions} />
+                                <div className="content">
+                                    <div className="ui comments">
+                                        <div className="comment" style={{ textAlign: 'right' }}>
+                                            <div className="metadata" >
+                                                <IssueReactions reactions={reactions} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
