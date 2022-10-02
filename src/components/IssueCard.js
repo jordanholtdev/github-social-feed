@@ -34,8 +34,16 @@ class IssueCard extends React.Component {
     }
 
     parseDate = (date) => {
+        const options = {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            timeZone: 'UTC',
+            hour: 'numeric'
+        }
         const formatDate = new Date(date)
-        return formatDate.toUTCString()
+        return formatDate.toLocaleString('en-US', options)
     }
 
     render() {
