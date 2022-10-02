@@ -26,13 +26,18 @@ class IssueCard extends React.Component {
         return issueNum[0]
     }
 
-    getRepoURL = (html_url) => {
-        const regEx = /[^/]+(?=\/)/g;
+    getRepoName = (html_url) => {
         const url = new URL(html_url)
-        const repo = regEx.exec(url.pathname)
-        return repo[0]
+        const repo = url.pathname.split('/')
+        return repo[2]
     }
 
+    getRepoURL = (html_url) => {
+        const url = new URL(html_url)
+        const repo = url.pathname.split('/')
+        const repoURL = `${url.protocol}${url.host}/${repo[1]}/${repo[2]}`
+        return repoURL
+    }
     parseDate = (date) => {
         const options = {
             weekday: 'long',
@@ -56,8 +61,8 @@ class IssueCard extends React.Component {
                         <a href={user.html_url} className="avatar">
                             <img className="ui avatar image" alt='' src={user.avatar_url} />
                         </a>
-                        <a className='extra content' href={html_url} rel="noreferrer" target="_blank" style={{ textAlign: 'right' }}>
-                            {this.getRepoURL(html_url)}</a>
+                        <a className='extra content' href={this.getRepoURL(html_url)} rel="noreferrer" target="_blank" style={{ textAlign: 'right' }}>
+                            {this.getRepoName(html_url)}</a>
                         <div className="content" style={{ marginRight: '3.5rem' }}>
                             <a className="author" href={user.html_url} rel="noreferrer" target="_blank">{user.login}</a>
                             <div className="ui metadata">
