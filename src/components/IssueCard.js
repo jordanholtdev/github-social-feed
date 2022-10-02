@@ -7,6 +7,15 @@ import 'highlight.js/styles/github.css';
 class IssueCard extends React.Component {
 
     componentDidMount() {
+
+        marked.use({
+            renderer: {
+                image(src, alt) {
+                    return `<img src="${src}" alt=${alt} style=max-width:100%>`;
+                }
+            }
+        })
+
         marked.setOptions({
             highlight: function (code, lang) {
                 const hljs = require('highlight.js');
@@ -61,13 +70,15 @@ class IssueCard extends React.Component {
                         <a href={user.html_url} className="avatar">
                             <img className="ui avatar image" alt='' src={user.avatar_url} />
                         </a>
-                        <a className='extra content' href={this.getRepoURL(html_url)} rel="noreferrer" target="_blank" style={{ textAlign: 'right' }}>
-                            {this.getRepoName(html_url)}</a>
-                        <div className="content" style={{ marginRight: '3.5rem' }}>
-                            <a className="author" href={user.html_url} rel="noreferrer" target="_blank">{user.login}</a>
-                            <div className="ui metadata">
+                        <div className='content' style={{ justifyContent: 'space-around', display: 'flex', paddingBottom: '10px' }}>
+                            <a className="author" href={user.html_url} rel="noreferrer" target="_blank" style={{ width: '60%' }}>{user.login}</a>
+                            <div className="ui metadata" style={{ width: '100%' }}>
                                 <div className="date">{this.parseDate(created_at)}</div>
                             </div>
+                            <a className='extra' href={this.getRepoURL(html_url)} rel="noreferrer" target="_blank" style={{ width: '100%', textAlign: 'right' }}>
+                                {this.getRepoName(html_url)}</a>
+                        </div>
+                        <div className="content" style={{ marginRight: '3.5rem' }}>
                             <div className="text Issue-Text" dangerouslySetInnerHTML={{ __html: marked(body) }}>
                             </div>
                         </div>
