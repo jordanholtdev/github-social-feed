@@ -71,9 +71,9 @@ class IssueCard extends React.Component {
                             <img className="ui avatar image" alt='' src={user.avatar_url} />
                         </a>
                         <div className='content' style={{ justifyContent: 'space-around', display: 'flex', paddingBottom: '10px' }}>
-                            <a className="author" href={user.html_url} rel="noreferrer" target="_blank" style={{ width: '60%' }}>{user.login}</a>
-                            <div className="ui metadata" style={{ width: '100%' }}>
-                                <div className="date">{this.parseDate(created_at)}</div>
+                            <a className="author" href={user.html_url} rel="noreferrer" target="_blank" style={{ width: '30%' }}>{user.login}</a>
+                            <div className="ui" style={{ width: '100%' }}>
+                                <div className="Date-Text">{this.parseDate(created_at)}</div>
                             </div>
                             <a className='extra' href={this.getRepoURL(html_url)} rel="noreferrer" target="_blank" style={{ width: '100%', textAlign: 'right' }}>
                                 {this.getRepoName(html_url)}</a>

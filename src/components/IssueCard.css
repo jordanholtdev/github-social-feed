@@ -5,3 +5,9 @@
 .Issue-Text {
     overflow: auto;
 }
+
+.Date-Text {
+    font-size: 1em !important;
+    color: grey;
+    padding-left: 5px;
+}
