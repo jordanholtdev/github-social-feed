@@ -2,6 +2,22 @@
 
 This is the front-end code for the [Github Feed Project](https://ghfeed.jordanholt.dev)
 
+This website allows users to monitor issue comments of 4 popular repositories.
+
+## Functionality
+
+* Monitor issue comments of popular Github repositories.
+    * Issues updated daily.
+* Issues comments are rendered in markdown.
+* Lazy loading and infinite scrolling.
+* Static hosted in an AWS S3 Bucket
+
+
+## Screenshots
+
+![screenshot of website 1](https://github.com/jordanholtdev/github-social-feed/blob/main/screenshots/ghfeed_screenshot_1.png)
+![screenshot of website 2](https://github.com/jordanholtdev/github-social-feed/blob/main/screenshots/ghfeed_screenshot_2.png)
+
 ## Technology
 
 - React
